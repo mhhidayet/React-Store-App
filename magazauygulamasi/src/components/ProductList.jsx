@@ -2,23 +2,9 @@ import ProductCard from "./ProductCard";
 
 export default function ProductList({ products }) {
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-        gap: "16px",
-      }}
-    >
+    <div className="product-grid">
       {products.map((p) => (
-        <div
-          key={p.id}
-          style={{
-            backgroundColor: "#cfe8fc", // primary.light yerine renk
-            padding: "16px",
-            borderRadius: "8px",
-            textAlign: "center",
-          }}
-        >
+        <div className="product-item" key={p.id}>
           <ProductCard product={p} />
         </div>
       ))}

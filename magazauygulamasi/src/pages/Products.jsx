@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import ProductList from "../components/ProductList";
 import Loading from "../components/Loading";
-import request from "../api/apiClient";
+import requests from "../api/apiClient";
 
-export default function Products() {
+export default function ProductsPage() {
   const [loadedProducts, setLoadedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const data = await request.products.list();
+        const data = await requests.products.list();
         setLoadedProducts(data);
       } catch (error) {
         console.log(error);
@@ -22,7 +22,7 @@ export default function Products() {
     fetchProducts();
   }, []);
 
-  if (loading) return <Loading message="" />;
+  if (loading) return <Loading message="Yükleniyor..." />;
 
   return <ProductList products={loadedProducts} />;
 }

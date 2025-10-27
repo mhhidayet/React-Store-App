@@ -1,38 +1,47 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import Main from "./layouts/Main";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Login from "./pages/Login";
-import Cart from "./pages/Cart";
-import Register from "./pages/Register";
-import ProductDetails from "./pages/ProductDetails";
-const router = createBrowserRouter(
-  [
-    {
-      path: "/", element: <Main />,
-      children: [
-        { index: true, element: <Home /> },
-        { path: "home", element: <Home /> },
-        {
-          path: "products",
-          children: [
-            { index: true, element: <Products /> },
-            { path: ":id", element: <ProductDetails /> },
-          ],
-        },
-        { path: "cart", element: <Cart /> },
-        { path: "login", element: <Login /> },
-        { path: "register", element: <Register /> },
-      ]
-    },
-  ]);
+import MainLayout from "./layouts/Main";
+import HomePage from "./pages/Home";
+import ProductsPage from "./pages/Products";
+import CartPage from "./pages/Cart";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
+import ProductDetailsPage from "./pages/ProductDetails";
+import ErrorPage from "./pages/errors/Error";
+import ServerErrorPage from "./pages/errors/ServerError";
+import NotFoundPage from "./pages/errors/NotFound";
 
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "home", element: <HomePage /> },
+      {
+        path: "products",
+        children: [
+          { index: true, element: <ProductsPage /> },
+          { path: ":id", element: <ProductDetailsPage /> },
+        ],
+      },
+      { path: "cart", element: <CartPage /> },
+      { path: "login", element: <LoginPage /> },
+      { path: "register", element: <RegisterPage /> },
+      {
+        path: "errors",
+        children: [
+          { index: true, element: <ErrorPage /> },
+          { path: "server-error", element: <ServerErrorPage /> },
+          { path: "not-found", element: <NotFoundPage /> },
+        ],
+      },
+      { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+]);
 
 function App() {
-
-  return (
-    <RouterProvider router={router} />
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
