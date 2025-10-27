@@ -1,17 +1,9 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography, } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router";
-import { currenyTRY } from "../utils/formats";
+//import { currencyTRY } from "../utils/formats";
+
 
 export default function ProductCard({ product }) {
   return (
@@ -31,14 +23,14 @@ export default function ProductCard({ product }) {
             {product.title}
           </Typography>
           <Typography variant="body1" color="secondary.dark">
-            {currenyTRY.format(product.price)}
+            {currencyTRY.format(product.price)}
           </Typography>
         </CardContent>
       </CardActionArea>
 
       <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
         <IconButton>
-          {/* <FavoriteIcon /> */}
+          {<FavoriteIcon />}
           <FavoriteBorderIcon />
         </IconButton>
         <Button>Sepete Ekle</Button>
