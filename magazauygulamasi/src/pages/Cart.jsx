@@ -13,8 +13,15 @@ export default function CartPage() {
   const { cart, setCart } = useCartContext();
   const [status, setStatus] = useState({ loading: false, id: "" });
 
+  const subTotal = cart?.cartItems.reduce((toplam, item) => toplam + (item.product.price * item.product.quantity), 0);
+
+  const cargo = 120;
+  const total = subTotal + cargo;
+
+
+
   if (!cart || cart.cartItems.length === 0)
-    return <Typography component="h4">Sepetinizde ürün yok</Typography>;
+    return <Typography component="h4" color="error" textAlign="center">Sepetinizde ürün yoktur</Typography>;
 
   function handleAddItem(productId, id) {
     setStatus({ loading: true, id: id });
@@ -60,7 +67,7 @@ export default function CartPage() {
               <TableCell>{item.product.title}</TableCell>
               <TableCell>{currencyTRY.format(item.product.price)}</TableCell>
               <TableCell>
-                <Button onClick={() => handleAddItem(item.product.productId, "add" + item.productId)}>
+                <Button onClick={() => handleAddItem(item.product.productId, "add" + item.product.productId)}>
                   {status.loading && status.id === "add" + item.product.productId ? (
                     <CircularProgress size="20px" />
                   ) : (
@@ -93,9 +100,21 @@ export default function CartPage() {
               </TableCell>
             </TableRow>
           ))}
+          <TableRow>
+            <TableCell align="right" colSpan={5}>Ara Toplam</TableCell>
+            <TableCell align="right" colSpan={5}>{currencyTRY.format(subTotal)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell align="right" colSpan={5}>Kargo Bedeli</TableCell>
+            <TableCell align="right" colSpan={5}>{currencyTRY.format(cargo)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell align="right" colSpan={5}>Toplam</TableCell>
+            <TableCell align="right" colSpan={5}>{currencyTRY.format(total)}</TableCell>
+          </TableRow>
         </TableBody>
       </Table>
-    </TableContainer>
+    </TableContainer >
   );
 }
 

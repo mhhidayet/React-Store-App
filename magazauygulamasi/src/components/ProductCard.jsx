@@ -1,5 +1,5 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, CircularProgress, IconButton, Typography, } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+//import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router";
 import { currencyTRY } from "../utilis/format"
@@ -44,7 +44,7 @@ export default function ProductCard({ product }) {
 
       <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
         <IconButton>
-          {<FavoriteIcon />}
+          {/* {<FavoriteIcon />} */}
           <FavoriteBorderIcon />
         </IconButton>
         <Button onClick={() => handleAddItem(product.id)}>
