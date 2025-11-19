@@ -1,7 +1,6 @@
 import { Button, CircularProgress, Grid, Paper, Stack, Typography } from "@mui/material";
 import { currencyTRY } from "../utilis/format";
 import ReportIcon from "@mui/icons-material/Report";
-import { Circle } from "@mui/icons-material";
 
 export default function ProductItem({ product, handleAddItem, cartItem, isAdding }) {
   return (

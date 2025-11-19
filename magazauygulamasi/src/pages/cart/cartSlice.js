@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import requests from "../../api/apiClient";
 
 const initialState = {
     cart: null,
@@ -7,9 +8,21 @@ const initialState = {
 
 export const addItemToCart = createAsyncThunk(
     "cart/addItemToCart",
+    async({productId,quantity=1, key=""})=>{
+        try{
+            return await requests.cart.addItem(productId,quantity);
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+);
+
+export const deleteItemFromCart = createAsyncThunk(
+    "cart/deleteItemToCart",
     async({productId,quantity=1})=>{
         try{
-            return await request.cart.addItem(productId,quantity);
+            return await requests.cart.deleteItem(productId,quantity);
         }
         catch(error){
             console.log(error);
@@ -27,18 +40,31 @@ export const cartSlice = createSlice({
     },
     extraReducers:(builder)=>{
         builder.addCase(addItemToCart.pending,(state,action)=>{
-            console.log(action);
-            state.status="pendingAddItem"+action.meta.arg.productId;
+           state.status="pendingAddItem"+action.meta.arg.productId;
         });
 
         builder.addCase(addItemToCart.fulfilled,(state,action)=>{
-        console.log(action);
         state.cart=action.payload
         state.status="idle";
         });
         builder.addCase(addItemToCart.rejected,(state)=>{
             state.status = "idle";
+        });
+
+
+
+         builder.addCase(deleteItemFromCart.pending,(state,action)=>{
+            state.status="pendingDeleteItem"+action.meta.arg.key;
+        });
+
+        builder.addCase(deleteItemFromCart.fulfilled,(state,action)=>{
+        state.cart=action.payload
+        state.status="idle";
+        });
+        builder.addCase(deleteItemFromCart.rejected,(state)=>{
+            state.status = "idle";
         })
     },
+
 });
 export const { setCart } = cartSlice.actions;
