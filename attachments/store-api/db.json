@@ -1,1 +1,73 @@
-{"products":[{"id":"1","title":"Mont 1","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"1.jpg","price":"2300"},{"id":"2","title":"Mont 2","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"2.jpg","price":"2100"},{"id":"3","title":"Mont 3","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"3.jpg","price":"2400"},{"id":"4","title":"Mont 4","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"4.jpg","price":"1800"},{"id":"5","title":"Mont 5","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"5.jpg","price":"3200"},{"id":"6","title":"Mont 6","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"6.jpg","price":"3400"}],"carts":[{"id":"49cc72c0-8c7a-4582-ab67-ea3c1a4a9e9d","customerId":"4bdc36f1-f0a9-4533-9ab5-f930316c65db","cartItems":[{"id":"96376f30-b080-4ccb-b208-168f2b1d963b","productId":"1","quantity":1},{"id":"7dbbaecf-0419-4883-b512-98e41f736c0a","productId":"2","quantity":1},{"id":"405a06b5-0f86-4e24-970e-77897a0bfc52","productId":"4","quantity":1},{"id":"f84f5a50-0543-4fb5-93f8-f71d97ee07a4","productId":"3","quantity":1}]}]}
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Mont 1",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+      "image": "1.jpg",
+      "price": "2300"
+    },
+    {
+      "id": "2",
+      "title": "Mont 2",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+      "image": "2.jpg",
+      "price": "2100"
+    },
+    {
+      "id": "3",
+      "title": "Mont 3",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+      "image": "3.jpg",
+      "price": "2400"
+    },
+    {
+      "id": "4",
+      "title": "Mont 4",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+      "image": "4.jpg",
+      "price": "1800"
+    },
+    {
+      "id": "5",
+      "title": "Mont 5",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+      "image": "5.jpg",
+      "price": "3200"
+    },
+    {
+      "id": "6",
+      "title": "Mont 6",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+      "image": "6.jpg",
+      "price": "3400"
+    }
+  ],
+  "carts": [
+    {
+      "id": "da81ea9d-83bc-4e0d-8653-a06bc29e9ee1",
+      "customerId": "e30ac1c0-32f5-4e29-b811-7a9af68c2a84",
+      "cartItems": []
+    },
+    {
+      "id": "e9e9497d-6463-4a5c-a65e-a64733b996b6",
+      "customerId": "8d1849ca-d3a2-4961-9988-9d49772d2fcb",
+      "cartItems": []
+    },
+    {
+      "id": "c5e759b7-0e08-4285-aea2-7d0b744990ae",
+      "customerId": "0ea6755f-7e2b-4d8c-890b-7ac85e2e5ca4",
+      "cartItems": []
+    }
+  ],
+  "users": [
+    {
+      "id": "f428a27d-9195-416e-9608-28c70e78d003",
+      "username": "metehan",
+      "email": "info@hidayet.com",
+      "password": "$2a$10$tSZwyHZHoqNtdWHxk52fo.tYDM.BZAHh.WgofJVdk6rnkZMcf0mKK"
+    },
+    {}
+  ],
+  "orders": []
+}

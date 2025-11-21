@@ -1,29 +1,40 @@
-import { useState } from "react";
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from "@mui/material";
-import { currencyTRY } from "../../utilis/format";
-import { Delete } from "@mui/icons-material"
+import {
+  Button,
+  CircularProgress,
+  IconButton,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
+import { currenyTRY } from "../../utils/formats";
+import { Delete } from "@mui/icons-material";
 import { useCartContext } from "../../context/CartContext";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import { useState } from "react";
 import requests from "../../api/apiClient";
-import { CircularProgress } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, deleteItemFromCart, setCart } from "./cartSlice";
 
-
 export default function CartPage() {
-  const { cart, status } = useSelector((state) => state.cart)
+  const { cart, status } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const subTotal = cart?.cartItems.reduce((toplam, item) => toplam + item.product.price * item.product.quantity, 0);
+  const subTotal = cart?.cartItems.reduce(
+    (toplam, item) => toplam + item.product.price * item.product.quantity,
+    0
+  );
 
-  const cargo = 120;
-  const total = subTotal + cargo;
+  const tax = subTotal * 0.2;
+  const total = subTotal + tax;
 
   if (!cart || cart.cartItems.length === 0)
-    return <Typography component="h4" color="error" textAlign="center">Sepetinizde ürün yok</Typography>;
-
-
+    return <Typography component="h4">Sepetinizde ürün yok</Typography>;
 
   return (
     <TableContainer component={Paper}>
@@ -48,10 +59,16 @@ export default function CartPage() {
                 />
               </TableCell>
               <TableCell>{item.product.title}</TableCell>
-              <TableCell>{currencyTRY.format(item.product.price)}</TableCell>
+              <TableCell>{currenyTRY.format(item.product.price)}</TableCell>
               <TableCell>
-                <Button onClick={() => dispatch(addItemToCart({ productId: item.product.productId }))}>
-                  {status === "pendingAddItem " + item.product.productId ? (
+                <Button
+                  onClick={() =>
+                    dispatch(
+                      addItemToCart({ productId: item.product.productId })
+                    )
+                  }
+                >
+                  {status === "pendingAddItem" + item.product.productId ? (
                     <CircularProgress size="20px" />
                   ) : (
                     <AddCircleOutlineIcon />
@@ -60,9 +77,18 @@ export default function CartPage() {
 
                 {item.product.quantity}
                 <Button
-                  onClick={() => dispatch(deleteItemFromCart({ productId: item.product.productId, quantity: 1, key: "single", }))}
+                  onClick={() =>
+                    dispatch(
+                      deleteItemFromCart({
+                        productId: item.product.productId,
+                        quantity: 1,
+                        key: "single",
+                      })
+                    )
+                  }
                 >
-                  {status === "pendingDeleteItem " + item.product.productId + "single" ? (
+                  {status ===
+                    "pendingDeleteItem" + item.product.productId + "single" ? (
                     <CircularProgress size="20px" />
                   ) : (
                     <RemoveCircleOutlineIcon />
@@ -70,11 +96,23 @@ export default function CartPage() {
                 </Button>
               </TableCell>
               <TableCell>
-                {currencyTRY.format(item.product.price * item.product.quantity)}
+                {currenyTRY.format(item.product.price * item.product.quantity)}
               </TableCell>
               <TableCell>
-                <Button onClick={() => dispatch(deleteItemFromCart({ productId: item.product.productId, quantity: item.product.quantity, key: "all" }))} color="error">
-                  {status === "pendingDeleteItem " + item.product.productId + "all" ? (
+                <Button
+                  onClick={() =>
+                    dispatch(
+                      deleteItemFromCart({
+                        productId: item.product.productId,
+                        quantity: item.product.quantity,
+                        key: "all",
+                      })
+                    )
+                  }
+                  color="error"
+                >
+                  {status ===
+                    "pendingDeleteItem" + item.product.productId + "all" ? (
                     <CircularProgress size="20px" />
                   ) : (
                     <Delete />
@@ -84,20 +122,31 @@ export default function CartPage() {
             </TableRow>
           ))}
           <TableRow>
-            <TableCell align="right" colSpan={5}>Ara Toplam</TableCell>
-            <TableCell align="right" colSpan={5}>{currencyTRY.format(subTotal)}</TableCell>
+            <TableCell align="right" colSpan={5}>
+              Ara Toplam
+            </TableCell>
+            <TableCell align="right" colSpan={5}>
+              {currenyTRY.format(subTotal)}
+            </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell align="right" colSpan={5}>Kargo Bedeli</TableCell>
-            <TableCell align="right" colSpan={5}>{currencyTRY.format(cargo)}</TableCell>
+            <TableCell align="right" colSpan={5}>
+              Vergi
+            </TableCell>
+            <TableCell align="right" colSpan={5}>
+              {currenyTRY.format(tax)}
+            </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell align="right" colSpan={5}>Toplam</TableCell>
-            <TableCell align="right" colSpan={5}>{currencyTRY.format(total)}</TableCell>
+            <TableCell align="right" colSpan={5}>
+              Toplam
+            </TableCell>
+            <TableCell align="right" colSpan={5}>
+              {currenyTRY.format(total)}
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>
-    </TableContainer >
+    </TableContainer>
   );
 }
-

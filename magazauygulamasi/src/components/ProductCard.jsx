@@ -1,17 +1,25 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, CircularProgress, IconButton, Typography, } from "@mui/material";
-//import FavoriteIcon from "@mui/icons-material/Favorite";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CircularProgress,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router";
-import { currencyTRY } from "../utilis/format"
+import { currenyTRY } from "../utils/formats";
 import requests from "../api/apiClient";
 import { useState } from "react";
 import { useCartContext } from "../context/CartContext";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, setCart } from "../pages/cart/cartSlice";
 
-
 export default function ProductCard({ product }) {
-
   const dispatch = useDispatch();
   const { status } = useSelector((state) => state.cart);
 
@@ -32,20 +40,26 @@ export default function ProductCard({ product }) {
             {product.title}
           </Typography>
           <Typography variant="body1" color="secondary.dark">
-            {currencyTRY.format(product.price)}
+            {currenyTRY.format(product.price)}
           </Typography>
         </CardContent>
       </CardActionArea>
 
       <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
         <IconButton>
-          {/* {<FavoriteIcon />} */}
+          {/* <FavoriteIcon /> */}
           <FavoriteBorderIcon />
         </IconButton>
-        <Button onClick={() => dispatch(addItemToCart({ productId: product.id }))}>
-          {status === "pendingAddItem" + product.id ? < CircularProgress size="20px" /> : "Sepete Ekle"}
+        <Button
+          onClick={() => dispatch(addItemToCart({ productId: product.id }))}
+        >
+          {status === "pendingAddItem" + product.id ? (
+            <CircularProgress size="20px" />
+          ) : (
+            "Sepete Ekle"
+          )}
         </Button>
       </CardActions>
-    </Card >
+    </Card>
   );
 }

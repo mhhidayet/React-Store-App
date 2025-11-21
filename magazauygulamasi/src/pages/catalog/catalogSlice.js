@@ -1,69 +1,66 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createEntityAdapter,
+  createSlice,
+} from "@reduxjs/toolkit";
 import requests from "../../api/apiClient";
 
-const initialState = {
-  cart: null,
+export const fetchProducts = createAsyncThunk(
+  "catalog/fetchProducts",
+  async () => {
+    return await requests.products.list();
+  }
+);
+
+export const fetchProductById = createAsyncThunk(
+  "catalog/fetchProductById",
+  async (productId) => {
+    return await requests.products.details(productId);
+  }
+);
+const productsAdapter = createEntityAdapter();
+
+const initialState = productsAdapter.getInitialState({
   status: "idle",
-};
+  isLoaded: false,
+});
 
-export const addItemToCart = createAsyncThunk(
-  "cart/addItemToCart",
-  async ({ productId, quantity = 1 }) => {
-    try {
-      return await requests.cart.addItem(productId, quantity);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
-
-export const deleteItemFromCart = createAsyncThunk(
-  "cart/deleteItemFromCart",
-  async ({ productId, quantity = 1, key = "" }) => {
-    try {
-      return await requests.cart.deleteItem(productId, quantity);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
-
-export const cartSlice = createSlice({
-  name: "cart",
+export const catalogSlice = createSlice({
+  name: "catalog",
   initialState,
-  reducers: {
-    setCart: (state, action) => {
-      state.cart = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(addItemToCart.pending, (state, action) => {
-      state.status = "pendingAddItem" + action.meta.arg.productId;
+    builder.addCase(fetchProducts.pending, (state) => {
+      state.status = "pendingFetchProducts";
     });
 
-    builder.addCase(addItemToCart.fulfilled, (state, action) => {
-      state.cart = action.payload;
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+      productsAdapter.setAll(state, action.payload);
+      state.isLoaded = true;
       state.status = "idle";
     });
 
-    builder.addCase(addItemToCart.rejected, (state) => {
+    builder.addCase(fetchProducts.rejected, (state) => {
       state.status = "idle";
     });
 
-    builder.addCase(deleteItemFromCart.pending, (state, action) => {
-      state.status =
-        "pendingDeleteItem" + action.meta.arg.productId + action.meta.arg.key;
+    builder.addCase(fetchProductById.pending, (state) => {
+      state.status = "pendingFetchProductById";
     });
 
-    builder.addCase(deleteItemFromCart.fulfilled, (state, action) => {
-      state.cart = action.payload;
+    builder.addCase(fetchProductById.fulfilled, (state, action) => {
+      productsAdapter.upsertOne(state, action.payload);
       state.status = "idle";
     });
 
-    builder.addCase(deleteItemFromCart.rejected, (state) => {
+    builder.addCase(fetchProductById.rejected, (state) => {
       state.status = "idle";
     });
   },
 });
 
-export const { setCart } = cartSlice.actions;
+export const {
+  selectById: selectProductById,
+  selectAll: selectAllProducts,
+  selectTotal: selectTotalProducts,
+} = productsAdapter.getSelectors((state) => state.catalog);
