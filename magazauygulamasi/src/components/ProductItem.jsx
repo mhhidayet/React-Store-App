@@ -19,7 +19,7 @@ export default function ProductItem({
       <Grid size={{ lg: 4, md: 5, sm: 6, xs: 12 }}>
         <Paper variant="outlined" sx={{ p: 3 }}>
           <img
-            src={`http://localhost:5000/images/${product.image}`}
+            src={`http://localhost:5001/images/${product.image}`}
             style={{ width: "100%" }}
           />
         </Paper>
