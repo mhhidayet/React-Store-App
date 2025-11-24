@@ -9,7 +9,6 @@ import ErrorPage from "./pages/errors/Error";
 import ServerErrorPage from "./pages/errors/ServerError";
 import NotFoundPage from "./pages/errors/NotFound";
 import { useEffect, useState } from "react";
-import requests from "./api/apiClient";
 import { getCart, setCart } from "./pages/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import { getUser, logout, setUser } from "./pages/account/accountSlice";

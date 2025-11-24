@@ -3,16 +3,16 @@ import { Grid, TextField } from "@mui/material";
 import { useFormContext, Controller } from "react-hook-form";
 import { IMaskInput } from "react-imask";
 
-// Telefon maskesi: ref'i doğru iletecek şekilde forwardRef ile sarmalandı
+
 const PhoneMask = React.forwardRef(function PhoneMask(props, ref) {
     const { onChange, ...other } = props;
     return (
         <IMaskInput
             {...other}
-            mask="(000) 000 00 00"  // Türkiye telefon formatı
+            mask="(000) 000 00 00"
             inputMode="tel"
             overwrite
-            inputRef={ref}          // ref burada doğru iletiliyor
+            inputRef={ref}
             onAccept={(value) => onChange(value)}
         />
     );
@@ -87,13 +87,15 @@ export default function AdressForm() {
 
             <Grid item xs={12}>
                 <TextField
-                    {...register("adressline", { required: "Adressline zorunlu alan" })}
-                    label="Enter adressline"
+                    {...register("address", { required: "address zorunlu alan" })}
+                    label="Enter address"
                     size="small"
                     fullWidth
+                    multiline
+                    rows={4}
                     sx={{ mb: 2 }}
-                    error={!!errors.adressline}
-                    helperText={errors.adressline?.message}
+                    error={!!errors.address}
+                    helperText={errors.address?.message}
                 />
             </Grid>
         </Grid>
