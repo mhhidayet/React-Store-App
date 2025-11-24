@@ -1,1 +1,73 @@
-{"products":[{"id":"1","title":"Mont 1","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"1.jpg","price":"2300"},{"id":"2","title":"Mont 2","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"2.jpg","price":"2100"},{"id":"3","title":"Mont 3","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"3.jpg","price":"2400"},{"id":"4","title":"Mont 4","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"4.jpg","price":"1800"},{"id":"5","title":"Mont 5","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"5.jpg","price":"3200"},{"id":"6","title":"Mont 6","description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.","image":"6.jpg","price":"3400"}],"carts":[{"id":"da81ea9d-83bc-4e0d-8653-a06bc29e9ee1","customerId":"e30ac1c0-32f5-4e29-b811-7a9af68c2a84","cartItems":[]},{"id":"e9e9497d-6463-4a5c-a65e-a64733b996b6","customerId":"8d1849ca-d3a2-4961-9988-9d49772d2fcb","cartItems":[]},{"id":"c5e759b7-0e08-4285-aea2-7d0b744990ae","customerId":"0ea6755f-7e2b-4d8c-890b-7ac85e2e5ca4","cartItems":[]}],"users":[{"id":"f428a27d-9195-416e-9608-28c70e78d003","username":"metehan","email":"info@hidayet.com","password":"$2a$10$tSZwyHZHoqNtdWHxk52fo.tYDM.BZAHh.WgofJVdk6rnkZMcf0mKK"},{}],"orders":[{"id":"43c65b24-58ce-43bd-9cb9-d24f06a7780e","username":"metehan","customerId":"0ea6755f-7e2b-4d8c-890b-7ac85e2e5ca4","orderStatus":"Pending","orderDate":1763977123908,"orderItems":[{"id":"c50e4004-c99d-4aee-bcde-5074b383ffbf","productId":"1","title":"Mont 1","price":"2300","image":"1.jpg","quantity":1}],"total":2300},{"id":"73e51399-3a25-4230-b342-7347e7154ece","username":"metehan","customerId":"0ea6755f-7e2b-4d8c-890b-7ac85e2e5ca4","orderStatus":"Pending","orderDate":1763976838013,"orderItems":[{"id":"93afea1b-b868-4cd7-9c93-ac67ddd231a5","productId":"1","title":"Mont 1","price":"2300","image":"1.jpg","quantity":1}],"total":2300},{"id":"d3d1c682-9482-4350-86e0-e853b27d319a","username":"metehan","customerId":"0ea6755f-7e2b-4d8c-890b-7ac85e2e5ca4","orderStatus":"Pending","orderDate":1763975454628,"orderItems":[{"id":"be5e966e-58cb-4272-a696-150ddc4e2d3c","productId":"1","title":"Mont 1","price":"2300","image":"1.jpg","quantity":1}],"total":2300}]}
+{
+    "products": [
+        {
+            "id": "1",
+            "title": "Mont 1",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+            "image": "1.jpg",
+            "price": "2300"
+        },
+        {
+            "id": "2",
+            "title": "Mont 2",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+            "image": "2.jpg",
+            "price": "2100"
+        },
+        {
+            "id": "3",
+            "title": "Mont 3",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+            "image": "3.jpg",
+            "price": "2400"
+        },
+        {
+            "id": "4",
+            "title": "Mont 4",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+            "image": "4.jpg",
+            "price": "1800"
+        },
+        {
+            "id": "5",
+            "title": "Mont 5",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+            "image": "5.jpg",
+            "price": "3200"
+        },
+        {
+            "id": "6",
+            "title": "Mont 6",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste libero repudiandae quod omnis mollitia nam quo, quisquam quidem consectetur molestias ullam id aliquid, nobis, tempore repellendus iure. Vitae, vel fuga.",
+            "image": "6.jpg",
+            "price": "3400"
+        }
+    ],
+    "carts": [
+        {
+            "id": "da81ea9d-83bc-4e0d-8653-a06bc29e9ee1",
+            "customerId": "e30ac1c0-32f5-4e29-b811-7a9af68c2a84",
+            "cartItems": []
+        },
+        {
+            "id": "e9e9497d-6463-4a5c-a65e-a64733b996b6",
+            "customerId": "8d1849ca-d3a2-4961-9988-9d49772d2fcb",
+            "cartItems": []
+        },
+        {
+            "id": "c5e759b7-0e08-4285-aea2-7d0b744990ae",
+            "customerId": "0ea6755f-7e2b-4d8c-890b-7ac85e2e5ca4",
+            "cartItems": []
+        }
+    ],
+    "users": [
+        {
+            "id": "f428a27d-9195-416e-9608-28c70e78d003",
+            "username": "metehan",
+            "email": "info@hidayet.com",
+            "password": "$2a$10$tSZwyHZHoqNtdWHxk52fo.tYDM.BZAHh.WgofJVdk6rnkZMcf0mKK"
+        },
+        {}
+    ],
+    "orders": []
+}
